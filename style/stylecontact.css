@@ -10,7 +10,6 @@ body {
 }
 
 /**HEADER**/
-
 header {
     padding: 0px;
     margin: 0px;
@@ -20,50 +19,64 @@ header {
     position: fixed;
     top: 0px;
     width: 100%;
-    z-index: 1
+    z-index: 30;
+    height: 8vh;
 }
-
 .logo {
     margin-right: auto;
+    margin-left: 5px;
+    position: relative;
+    z-index: 30;
+    height: 100%;
 }
-
 .menua {
     position: relative;
     display: inline-block;
+    z-index: 15;
 }
-
 .list {
     cursor: pointer;
-    margin: 5px 20px 5px 0;
+    margin: auto 2vw auto 0;
+    position: relative;
+    height: 100%;
+    z-index: 30;
 }
-
 .menub {
     position: absolute;
     right: 0px;
-    z-index: 1;
-    display: none;
-    background-color: white;
+    z-index: 0;
+    display: flex;
     min-width: 160px;
+    background-color: white;
     border-left: 2px #ee596c solid;
     border-bottom: 2px #ee596c solid;
 }
-
 .menub a {
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .menub a:hover {
     color: #ee596c;
 }
+@keyframes slide {
+    0% {
+        transform: translateY(0);
+    }
 
-.show {
-    display: block;
+    100% {
+        transform: translateY(45vh);
+    }
 }
+@keyframes bigslide {
+    0% {
+        top:-11vh;
+    }
 
-
+    100% {
+        top:8vh;
+    }
+}
 /**FIN HEADER**/
 
 /*PREMIERE PARTIE DE L'ÉCRAN*/
@@ -107,7 +120,7 @@ header {
 form {
     margin-top: 100px;
     text-align: center;
-    width: 50%;
+    max-width: 80%;
     background: rgba(255, 255, 255, 0.75);
     padding: 10px;
     border-radius: 5px;
@@ -130,7 +143,9 @@ input[type=text] {
     justify-content: center;
     align-items: center;
 }
-
+.formulaire>form{
+    z-index:4;
+}
 button {
     border: solid #000000;
     background: #ee596c;
@@ -148,26 +163,6 @@ button {
     font-weight: bold;
 }
 
-.wrapper button:after,
-.wrapper button:before {
-    width: 0;
-    height: 0;
-    content: '';
-    position: absolute;
-    top: -1%;
-    left: -1%;
-    border-radius: 100%;
-}
-
-.wrapper button:after {
-    transition: all 0.5s ease;
-    background: #3e9bee;
-}
-
-.wrapper button:before {
-    transition: all 0.5s ease-out;
-    background: white;
-}
 
 .wrapper button span {
     z-index: 1;
@@ -178,28 +173,7 @@ button {
     transition: 0.5s;
 }
 
-.wrapper button:hover:after,
-.wrapper button:hover:before {
-    width: 300px;
-    height: 300px;
-    border-radius: 4px;
-}
 
-.wrapper button:hover:after {
-    transition: all 0.7s ease-in;
-}
-
-.wrapper button:hover:before {
-    transition: all 0.5s ease-in;
-}
-
-.wrapper button:hover span {
-    color: white;
-}
-
-.wrapper button:hover {
-    border: solid white;
-}
 
 /***FIN ANIMATION ET CSS DES BOUTONS***/
 
@@ -257,4 +231,228 @@ a {
     border-top: solid black 2px;
     position: relative;
     bottom: 0px;
+}
+
+@media screen and (max-width:680px) {
+    textarea{
+        max-width: 99%;
+    }
+    .realisations {
+        grid-template-columns: 1fr;
+    }
+    .realisations img{
+        width:90vw;
+    }
+    .menub {
+        top: -40vh;
+    }
+
+    header {
+        height: 10vh;
+    }
+
+    .logo {
+        height: 9vh;
+        margin-right: auto;
+        padding-right: 0;
+    }
+
+    .list {
+        margin: auto 30px auto auto;
+    }
+
+    .menub {
+        position: fixed;
+        left: 0px;
+        z-index: 9;
+        width: 100vw;
+        height: 50vh;
+        border: none;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .menub a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: flex;
+    }
+
+    .menub a:hover {
+        color: #ee596c;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .ecranB {
+        height: auto;
+    }
+
+    .ecranA {
+        height: auto;
+    }
+
+    .ecranC {
+        height: auto;
+    }
+
+    .texte {
+        padding: 0;
+    }
+
+    .fleche {
+        display: none;
+    }
+
+    .sable div {
+        display: none
+    }
+
+    .sable .social {
+        display: inherit
+    }
+
+    .show {
+        animation-name: slide;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-fill-mode: forwards
+    }
+    .tend {
+        display:none;
+    }
+    .teng {
+        display:none;
+    }
+}
+
+@media screen and (min-width:681px) {
+    form {
+        min-width: 620px;
+    }
+    .accueil p {
+        max-width: 80vw;
+        margin: auto;
+    }
+
+    .show {
+        animation-name: bigslide;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-fill-mode: forwards
+    }
+
+    .menub {
+        top: -11vh;
+        display: flex;
+        flex-direction: column;
+        z-index: 19;
+        height: 19vh;
+        position:fixed;
+    }
+
+    .menub a {
+        padding: auto;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tend:hover {
+        transform: scale(1.35) rotate(35deg) translateX(-25px) translateY(50px);
+    }
+
+    .teng:hover {
+        transform: scale(1.5) rotate(-35deg) translateX(25px) translateY(-50px);
+    }
+
+    .wrapper button:hover:after,
+    .wrapper button:hover:before {
+        width: 300px;
+        height: 300px;
+        border-radius: 4px;
+    }
+
+    .wrapper button:hover:after {
+        transition: all 0.7s ease-in;
+    }
+
+    .wrapper button:hover:before {
+        transition: all 0.5s ease-in;
+    }
+
+    .wrapper button:hover span {
+        color: white;
+    }
+
+    .wrapper button:hover {
+        border: solid white;
+    }
+
+    h1:hover {
+        letter-spacing: 5px;
+        color: rgba(255, 255, 255, 0.850);
+    }
+
+    .creation:hover {
+        color: white;
+        transform: scale(1.5);
+        border: 5px white solid;
+        border-radius: 0;
+    }
+
+    .social svg:hover {
+        transform: scale(1.3);
+    }
+    .sable div a:hover {
+        color:rgb(61, 28, 0);
+    }
+    .wrapper button:after,
+    .wrapper button:before {
+        width: 0;
+        height: 0;
+        content: '';
+        position: absolute;
+        top: -1%;
+        left: -1%;
+        border-radius: 100%;
+    }
+    
+    .wrapper button:after {
+        transition: all 0.5s ease;
+        background: #3e9bee;
+    }
+    
+    .wrapper button:before {
+        transition: all 0.5s ease-out;
+        background: white;
+    }
+    .wrapper button:hover:after,
+    .wrapper button:hover:before {
+        width: 300px;
+        height: 300px;
+        border-radius: 4px;
+    }
+    
+    .wrapper button:hover:after {
+        transition: all 0.7s ease-in;
+    }
+    
+    .wrapper button:hover:before {
+        transition: all 0.5s ease-in;
+    }
+    
+    .wrapper button:hover span {
+        color: white;
+    }
+    
+    .wrapper button:hover {
+        border: solid white;
+    }
+
 }
